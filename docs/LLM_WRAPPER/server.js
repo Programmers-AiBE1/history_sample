@@ -11,7 +11,7 @@ app.use(express.json());
 // app.use(cors());
 app.use(
   cors({
-    origin: "https://zero-aqua-coke.github.io", // 여러분들 거 (내꺼 깃허브 공유 링크 넣기)
+    origin: "https://programmers-aibe1.github.io/history_sample/", // 여러분들 거
     methods: ["POST"],
     allowedHeaders: ["Content-Type"],
   })
@@ -89,7 +89,7 @@ app.post("/", async (req, res) => {
     apiKey: GROQ_API_KEY,
     model: GROQ_LLAMA_MODEL,
     // text,
-    text: `${text}를 바탕으로 영화 추천에 어울리는 AI 이미지 생성을 위한 200자 이내의 영어 프롬프트를 작성해줘`,
+    text: `${text}라는 이름을 가진 위인 얼굴 AI 이미지 생성을 위한 200자 이내의 영어 프롬프트를 작성해줘`,
   }).then((res) => res.choices[0].message.content);
   // 2-2. 그거에서 프롬프트만 JSON으로 추출
   // mixtral-8x7b-32768	(groq)
@@ -122,7 +122,7 @@ app.post("/", async (req, res) => {
     apiKey: GROQ_API_KEY,
     model: GROQ_LLAMA_MODEL,
     // text,
-    text: `${text}를 바탕으로 영화 추천에 어울리는 설명 생성을 위한 200자 이내의 한글 프롬프트를 작성해줘`,
+    text: `${text}를 바탕으로 위인이 행한 유명한 업적 3가지를 뽑아서 3장의 이미지 생성을 위한 200자 이내의 한글 프롬프트를 작성해줘`,
   }).then((res) => res.choices[0].message.content);
   console.log(prompt2);
   // 3-2. 그거에서 프롬프트만 추출
